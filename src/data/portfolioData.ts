@@ -27,6 +27,8 @@ export interface EducationItem {
 export interface ContactInfo {
   phone: string;
   phoneLink: string;
+  whatsappNumber: string;
+  whatsappDefaultLink: string;
   email: string;
   emailLink: string;
   linkedin: string;
@@ -118,6 +120,11 @@ export const portfolioData: PortfolioData = {
       ]
     }
   ],
+  // =========================================================================
+  // FEATURED PROJECTS
+  // Easily add more Website Development, Social Media, or Ad Campaign projects
+  // by simply appending a new object to this array.
+  // =========================================================================
   projects: [
     {
       id: "ecohaven",
@@ -159,6 +166,19 @@ export const portfolioData: PortfolioData = {
         "Measurable CTR uplift and reduced cost per lead (CPL)"
       ]
     }
+    // 💡 TO ADD A NEW PROJECT: Copy the template below and uncomment:
+    // {
+    //   id: "my-new-project",
+    //   title: "Client Brand – Social Media & Ad Growth",
+    //   category: "Social Media Management & Paid Ads",
+    //   description: "Managed end-to-end content calendar, creative poster designs, and targeted Meta ads campaigns.",
+    //   tags: ["Meta Ads", "Instagram Growth", "Content Strategy", "Canva", "Analytics"],
+    //   highlights: [
+    //     "3.2x Return On Ad Spend (ROAS) in first 60 days",
+    //     "Organic social reach increased by 140%",
+    //     "Automated lead capture into client CRM"
+    //   ]
+    // }
   ],
   skills: {
     digitalMarketing: [
@@ -223,6 +243,9 @@ export const portfolioData: PortfolioData = {
   contact: {
     phone: "+91 9844272652",
     phoneLink: "tel:+919844272652",
+    whatsappNumber: "+91 9844272652",
+    whatsappDefaultLink:
+      "https://wa.me/919844272652?text=Hi%20Shubha!%20I%20visited%20your%20portfolio%20(Shubha.co)%20and%20would%20like%20to%20discuss%20a%20project%20with%20you.",
     email: "shubhubhalakshmipshubhalakshmip@gmail.com",
     emailLink: "mailto:shubhubhalakshmipshubhalakshmip@gmail.com",
     linkedin: "linkedin.com/in/shubha-shubha-62345244b",

@@ -1,21 +1,43 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { MapPin, Sparkles, CheckCircle2, Heart, ArrowRight } from 'lucide-react';
+import { MapPin, Sparkles, CheckCircle2, Heart, ArrowRight, MessageCircle, ArrowDownRight, Layers } from 'lucide-react';
 
 export const About: React.FC = () => {
   const { personal } = portfolioData;
 
-  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const contactElem = document.querySelector('#contact');
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: 'smooth' });
+    const elem = document.querySelector('#projects');
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1]">
+    <section id="about" className="pt-8 sm:pt-12 pb-24 sm:pb-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 relative z-10">
+        {/* Sleek High-Impact Work & Featured Projects Showcase Bar */}
+        <div className="bg-white border border-[#E8E6E1] rounded-3xl p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-12 sm:mb-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 group hover:border-[#8B1E24]/30 transition-all">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-widest text-[#8B1E24]">
+              <Layers size={13} className="text-[#8B1E24]" />
+              <span>Selected Work & Portfolio</span>
+            </div>
+            <p className="text-sm sm:text-base font-medium text-[#111111] leading-snug">
+              Explore my live work in Website Development, Social Media Management & Paid Ad Campaigns.
+            </p>
+          </div>
+
+          <a
+            href="#projects"
+            onClick={handleScrollToProjects}
+            className="bg-[#8B1E24] hover:bg-[#6E161B] text-white text-xs sm:text-sm font-medium px-5 py-2.5 rounded-full inline-flex items-center gap-2 transition shadow-md hover:shadow-[#8B1E24]/20 active:scale-95 cursor-pointer flex-shrink-0"
+          >
+            <span>Explore Featured Projects</span>
+            <ArrowDownRight size={16} />
+          </a>
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col items-start mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E24]/10 border border-[#8B1E24]/20 text-xs font-semibold text-[#8B1E24] uppercase tracking-widest mb-4">
@@ -139,11 +161,13 @@ export const About: React.FC = () => {
             </div>
 
             <a
-              href="#contact"
-              onClick={handleScrollToContact}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#111111] text-xs font-semibold uppercase tracking-wider hover:bg-[#F8F7F4] hover:scale-105 active:scale-95 transition-all shadow-md flex-shrink-0"
+              href={portfolioData.contact.whatsappDefaultLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#111111] text-xs font-semibold uppercase tracking-wider hover:bg-[#F8F7F4] hover:scale-105 active:scale-95 transition-all shadow-md flex-shrink-0"
             >
-              <span>Start a Conversation</span>
+              <MessageCircle size={15} className="text-emerald-600" />
+              <span>Start on WhatsApp</span>
               <ArrowRight size={14} className="text-[#8B1E24]" />
             </a>
           </div>

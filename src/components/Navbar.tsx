@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Phone, Mail, Linkedin, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
@@ -80,17 +80,19 @@ export const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Right (Desktop CTA) */}
+        {/* Right (Desktop CTA - Direct WhatsApp Connect) */}
         <div className="hidden md:block z-10">
           <a
-            href="#contact"
-            onClick={(e) => handleScrollTo(e, '#contact')}
-            className={`text-xs font-semibold uppercase tracking-wider px-6 py-2.5 rounded-full transition-all duration-200 shadow-md hover:scale-105 active:scale-95 inline-flex items-center gap-1.5 cursor-pointer ${
+            href={portfolioData.contact.whatsappDefaultLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-xs font-semibold uppercase tracking-wider px-6 py-2.5 rounded-full transition-all duration-200 shadow-md hover:scale-105 active:scale-95 inline-flex items-center gap-2 cursor-pointer ${
               scrolled
                 ? 'bg-[#8B1E24] text-white hover:bg-[#70161b]'
                 : 'bg-white text-gray-900 hover:bg-gray-100'
             }`}
           >
+            <MessageCircle size={14} className={scrolled ? 'text-white' : 'text-emerald-600'} />
             <span>Let's talk</span>
             <ArrowUpRight size={14} />
           </a>
@@ -140,17 +142,28 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Quick Contact Actions */}
+          {/* Quick Contact Actions with WhatsApp Priority */}
           <div className="pt-6 space-y-4 border-t border-white/15">
             <a
-              href="#contact"
-              onClick={(e) => handleScrollTo(e, '#contact')}
-              className="w-full text-center bg-[#8B1E24] text-white text-sm font-semibold py-3.5 rounded-2xl hover:bg-[#70161b] transition-colors block shadow-lg"
+              href={portfolioData.contact.whatsappDefaultLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center bg-gradient-to-r from-emerald-600 to-[#8B1E24] text-white text-sm font-semibold py-3.5 rounded-2xl hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-lg"
             >
-              Start a Conversation
+              <MessageCircle size={18} />
+              <span>Chat on WhatsApp (+91 9844272652)</span>
             </a>
 
-            <div className="flex items-center justify-center gap-6 pt-2 text-white/70">
+            <div className="flex items-center justify-center gap-4 pt-2 text-white/70">
+              <a
+                href={portfolioData.contact.whatsappDefaultLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 hover:text-white"
+                aria-label="WhatsApp Shubha"
+              >
+                <MessageCircle size={18} />
+              </a>
               <a
                 href={portfolioData.contact.phoneLink}
                 className="p-3 rounded-full bg-white/5 border border-white/10 hover:text-white"

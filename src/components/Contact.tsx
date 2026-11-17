@@ -10,7 +10,8 @@ import {
   Send,
   ArrowUpRight,
   MessageSquare,
-  ArrowUp
+  ArrowUp,
+  MessageCircle
 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -26,11 +27,20 @@ export const Contact: React.FC = () => {
 
   const contactMethods = [
     {
+      id: 'whatsapp',
+      label: 'WhatsApp Direct Chat',
+      value: contact.whatsappNumber,
+      href: contact.whatsappDefaultLink,
+      icon: <MessageCircle size={19} className="text-emerald-500" />,
+      isExternal: true,
+      badge: 'Online'
+    },
+    {
       id: 'phone',
-      label: 'Direct Call',
+      label: 'Direct Phone / Call',
       value: contact.phone,
       href: contact.phoneLink,
-      icon: <Phone size={19} />,
+      icon: <Phone size={19} className="text-[#8B1E24]" />,
       isExternal: false
     },
     {
@@ -38,7 +48,7 @@ export const Contact: React.FC = () => {
       label: 'Email Address',
       value: contact.email,
       href: contact.emailLink,
-      icon: <Mail size={19} />,
+      icon: <Mail size={19} className="text-[#8B1E24]" />,
       isExternal: false
     },
     {
@@ -46,15 +56,15 @@ export const Contact: React.FC = () => {
       label: 'LinkedIn Network',
       value: 'Connect on LinkedIn',
       href: contact.linkedinUrl,
-      icon: <Linkedin size={19} />,
+      icon: <Linkedin size={19} className="text-[#8B1E24]" />,
       isExternal: true
     },
     {
       id: 'location',
-      label: 'Location',
+      label: 'Location Base',
       value: contact.location,
       href: null,
-      icon: <MapPin size={19} />,
+      icon: <MapPin size={19} className="text-[#8B1E24]" />,
       isExternal: false
     }
   ];
@@ -69,11 +79,22 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     setSubmitting(true);
+
+    // Format clean, structured WhatsApp message
+    const formattedMessage = `Hi Shubha! I visited Shubha.co and would like to inquire about:
+• Service: ${selectedService}
+• Name: ${formData.name.trim()}
+• Email: ${formData.email.trim()}
+• Requirement: ${formData.message.trim()}`;
+
+    const whatsappUrl = `https://wa.me/919844272652?text=${encodeURIComponent(formattedMessage)}`;
+
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       setSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    }, 600);
+    }, 400);
   };
 
   return (
@@ -82,36 +103,55 @@ export const Contact: React.FC = () => {
         <div className="flex flex-col items-start mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E24]/10 border border-[#8B1E24]/20 text-xs font-semibold text-[#8B1E24] uppercase tracking-widest mb-4">
             <MessageSquare size={13} className="text-[#8B1E24]" />
-            <span>06 / Direct Inquiries</span>
+            <span>06 / Direct Inquiries & WhatsApp</span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#111111]">
             Let's <span className="font-playfair italic font-normal text-[#8B1E24]">Collaborate</span>
           </h2>
           <p className="text-[#4B5563] text-sm sm:text-base max-w-xl mt-3 font-light">
-            Ready to design high-converting marketing campaigns, build an e-commerce platform, or implement full-stack web solutions? Reach out directly.
+            Ready to design high-converting marketing campaigns, build an e-commerce platform, or implement full-stack web solutions? Reach out directly via WhatsApp, call, or email.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Direct Contact Cards with Zero Text Overflow */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Left Column: Direct Contact Cards including WhatsApp */}
+          <div className="lg:col-span-5 space-y-3.5">
             {contactMethods.map((m) => (
               <div
                 key={m.id}
-                className="bg-white border border-[#E8E6E1] rounded-3xl p-5 sm:p-6 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#8B1E24]/40 transition-all"
+                className={`bg-white border rounded-3xl p-5 sm:p-5.5 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all ${
+                  m.id === 'whatsapp'
+                    ? 'border-emerald-200/80 hover:border-emerald-500 bg-emerald-50/20'
+                    : 'border-[#E8E6E1] hover:border-[#8B1E24]/40'
+                }`}
               >
                 {m.href ? (
                   <a
                     href={m.href}
                     target={m.isExternal ? '_blank' : undefined}
                     rel={m.isExternal ? 'noopener noreferrer' : undefined}
-                    className="flex items-center gap-4 flex-1 min-w-0"
+                    className="flex items-center gap-3.5 flex-1 min-w-0"
                   >
-                    <div className="w-11 h-11 rounded-2xl bg-[#8B1E24]/10 flex items-center justify-center text-[#8B1E24] flex-shrink-0">
+                    <div
+                      className={`w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 ${
+                        m.id === 'whatsapp'
+                          ? 'bg-emerald-100/70 border border-emerald-300/40'
+                          : 'bg-[#8B1E24]/10 border border-[#8B1E24]/20'
+                      }`}
+                    >
                       {m.icon}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <span className="text-[11px] text-[#6B7280] uppercase tracking-wider block font-mono font-medium">{m.label}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] text-[#6B7280] uppercase tracking-wider block font-mono font-medium">
+                          {m.label}
+                        </span>
+                        {m.badge && (
+                          <span className="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[9px] font-mono font-semibold">
+                            {m.badge}
+                          </span>
+                        )}
+                      </div>
                       <span className="text-xs sm:text-sm font-semibold text-[#111111] hover:text-[#8B1E24] truncate flex items-center gap-1 transition-colors">
                         {m.value}
                         {m.isExternal && <ArrowUpRight size={13} className="text-[#8B1E24]" />}
@@ -119,19 +159,32 @@ export const Contact: React.FC = () => {
                     </div>
                   </a>
                 ) : (
-                  <div className="flex items-center gap-4 flex-1 min-w-0">
-                    <div className="w-11 h-11 rounded-2xl bg-[#8B1E24]/10 flex items-center justify-center text-[#8B1E24] flex-shrink-0">
+                  <div className="flex items-center gap-3.5 flex-1 min-w-0">
+                    <div className="w-11 h-11 rounded-2xl bg-[#8B1E24]/10 border border-[#8B1E24]/20 flex items-center justify-center flex-shrink-0">
                       {m.icon}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <span className="text-[11px] text-[#6B7280] uppercase tracking-wider block font-mono font-medium">{m.label}</span>
-                      <span className="text-xs sm:text-sm font-semibold text-[#111111] truncate block">{m.value}</span>
+                      <span className="text-[11px] text-[#6B7280] uppercase tracking-wider block font-mono font-medium">
+                        {m.label}
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#111111] truncate block">
+                        {m.value}
+                      </span>
                     </div>
                   </div>
                 )}
                 <button
                   type="button"
-                  onClick={() => handleCopy(m.id === 'linkedin' ? contact.linkedinUrl : m.value, m.id)}
+                  onClick={() =>
+                    handleCopy(
+                      m.id === 'linkedin'
+                        ? contact.linkedinUrl
+                        : m.id === 'whatsapp'
+                        ? contact.whatsappNumber
+                        : m.value,
+                      m.id
+                    )
+                  }
                   title={`Copy ${m.label}`}
                   className="p-2 rounded-xl bg-[#F8F7F4] border border-[#E8E6E1] hover:bg-neutral-100 text-[#4B5563] hover:text-[#111111] transition-colors flex-shrink-0 ml-2"
                 >
@@ -141,14 +194,26 @@ export const Contact: React.FC = () => {
             ))}
           </div>
 
-          {/* Right Column: Inquiry Form with Service Chips */}
+          {/* Right Column: Inquiry Form with Direct WhatsApp Dispatch */}
           <div className="lg:col-span-7">
             <div className="bg-white border border-[#E8E6E1] rounded-3xl p-7 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-              <h3 className="text-xl sm:text-2xl font-semibold text-[#111111] tracking-tight mb-2">Send a Message</h3>
-              <p className="text-xs sm:text-sm text-[#4B5563] mb-6 font-light">Select your area of interest and share details about your inquiry.</p>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#111111] tracking-tight">
+                  Send via WhatsApp
+                </h3>
+                <span className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                  <MessageCircle size={12} className="text-emerald-600" />
+                  Instant Direct Chat
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-[#4B5563] mb-6 font-light">
+                Fill out the form below to auto-format and send your project inquiry directly to Shubha's WhatsApp.
+              </p>
 
               <div className="mb-6">
-                <span className="text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] block mb-2.5">Service of Interest</span>
+                <span className="text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] block mb-2.5">
+                  Service of Interest
+                </span>
                 <div className="flex flex-wrap gap-2">
                   {services.map((svc) => (
                     <button
@@ -156,7 +221,9 @@ export const Contact: React.FC = () => {
                       type="button"
                       onClick={() => setSelectedService(svc)}
                       className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                        selectedService === svc ? 'bg-[#8B1E24] text-white shadow-sm' : 'bg-[#F8F7F4] text-[#4B5563] border border-[#E8E6E1] hover:bg-neutral-100'
+                        selectedService === svc
+                          ? 'bg-[#8B1E24] text-white shadow-sm'
+                          : 'bg-[#F8F7F4] text-[#4B5563] border border-[#E8E6E1] hover:bg-neutral-100'
                       }`}
                     >
                       {svc}
@@ -167,25 +234,40 @@ export const Contact: React.FC = () => {
 
               {submitted ? (
                 <div className="p-8 rounded-2xl bg-[#F8F7F4] border border-[#E8E6E1] text-center animate-in fade-in duration-300">
-                  <div className="w-14 h-14 rounded-full bg-[#8B1E24] text-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto mb-4 shadow-md">
                     <Check size={28} />
                   </div>
-                  <h4 className="text-lg font-semibold text-[#111111] mb-2">Inquiry Received</h4>
+                  <h4 className="text-lg font-semibold text-[#111111] mb-2">
+                    Inquiry Opened in WhatsApp!
+                  </h4>
                   <p className="text-xs sm:text-sm text-[#4B5563] max-w-md mx-auto mb-6 font-light">
-                    Thank you, {formData.name || 'there'}! Your message regarding <span className="font-semibold text-[#111111]">{selectedService}</span> has been sent. I will respond to your email shortly.
+                    Your inquiry details for <span className="font-semibold text-[#111111]">{selectedService}</span> were pre-filled and sent to Shubha's WhatsApp (+91 9844272652).
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 rounded-full bg-[#111111] text-white text-xs font-semibold uppercase tracking-wider hover:bg-black transition-colors"
-                  >
-                    Send Another Message
-                  </button>
+                  <div className="flex items-center justify-center gap-3">
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="px-5 py-2.5 rounded-full bg-[#111111] text-white text-xs font-semibold uppercase tracking-wider hover:bg-black transition-colors"
+                    >
+                      Send Another Inquiry
+                    </button>
+                    <a
+                      href={contact.whatsappDefaultLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full bg-emerald-600 text-white text-xs font-semibold uppercase tracking-wider hover:bg-emerald-700 transition-colors inline-flex items-center gap-1.5"
+                    >
+                      <MessageCircle size={14} />
+                      Open WhatsApp Again
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] mb-1.5">Your Name</label>
+                      <label className="block text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] mb-1.5">
+                        Your Name
+                      </label>
                       <input
                         type="text"
                         required
@@ -196,7 +278,9 @@ export const Contact: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] mb-1.5">Your Email</label>
+                      <label className="block text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] mb-1.5">
+                        Your Email
+                      </label>
                       <input
                         type="email"
                         required
@@ -207,23 +291,35 @@ export const Contact: React.FC = () => {
                       />
                     </div>
                   </div>
+
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] mb-1.5">Message & Scope</label>
+                    <label className="block text-[11px] uppercase tracking-wider font-mono font-semibold text-[#374151] mb-1.5">
+                      Message & Project Scope
+                    </label>
                     <textarea
                       required
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={`Tell me about your ${selectedService} needs or campaign objectives...`}
+                      placeholder={`Tell me about your ${selectedService} needs, goals, or questions...`}
                       className="w-full px-4 py-3 rounded-2xl bg-[#F8F7F4] border border-[#E8E6E1] text-[#111111] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#8B1E24] focus:bg-white transition-all text-xs sm:text-sm resize-none"
                     />
                   </div>
+
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 rounded-2xl bg-[#8B1E24] text-white font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-[#70161b] transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-[#8B1E24]/30 active:scale-[0.99] cursor-pointer disabled:opacity-50"
+                    className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-[#8B1E24] text-white font-semibold text-xs sm:text-sm uppercase tracking-wider hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-emerald-600/20 active:scale-[0.99] cursor-pointer disabled:opacity-50"
                   >
-                    {submitting ? <span>Sending inquiry...</span> : (<><span>Submit Inquiry</span><Send size={15} /></>)}
+                    {submitting ? (
+                      <span>Opening WhatsApp...</span>
+                    ) : (
+                      <>
+                        <MessageCircle size={16} />
+                        <span>Send via WhatsApp (+91 9844272652)</span>
+                        <Send size={14} />
+                      </>
+                    )}
                   </button>
                 </form>
               )}
@@ -249,6 +345,15 @@ export const Contact: React.FC = () => {
               {portfolioData.navigation.map((item) => (
                 <a key={item.label} href={item.href} className="hover:text-white transition-colors">{item.label}</a>
               ))}
+              <a
+                href={contact.whatsappDefaultLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 text-emerald-400 font-semibold transition-colors flex items-center gap-1"
+              >
+                <MessageCircle size={13} />
+                <span>WhatsApp</span>
+              </a>
             </div>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

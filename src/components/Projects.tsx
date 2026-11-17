@@ -99,7 +99,7 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24 sm:py-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1]">
+    <section id="projects" className="py-24 sm:py-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1] scroll-mt-24">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 relative z-10">
         {/* Header */}
         <div className="flex flex-col items-start mb-12 sm:mb-16">
