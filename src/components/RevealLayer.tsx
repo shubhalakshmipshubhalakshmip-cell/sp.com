@@ -16,7 +16,7 @@ export const RevealLayer: React.FC<RevealLayerProps> = ({
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const revealDivRef = useRef<HTMLDivElement | null>(null);
 
-  // Resize canvas to window dimensions on mount & window resize
+  // Resize canvas to window dimensions on mount & resize
   useEffect(() => {
     const handleResize = () => {
       if (canvasRef.current) {
@@ -29,7 +29,7 @@ export const RevealLayer: React.FC<RevealLayerProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Update mask on every cursor coordinate update
+  // Update mask on every cursor/touch coordinate update
   useEffect(() => {
     const canvas = canvasRef.current;
     const revealDiv = revealDivRef.current;
@@ -77,14 +77,12 @@ export const RevealLayer: React.FC<RevealLayerProps> = ({
         revealDiv.style.maskImage = cssMask;
         revealDiv.style.webkitMaskImage = cssMask;
       }
+      revealDiv.style.opacity = '1';
     } else {
       revealDiv.style.maskImage = 'none';
       revealDiv.style.webkitMaskImage = 'none';
       revealDiv.style.opacity = '0';
-      return;
     }
-
-    revealDiv.style.opacity = '1';
   }, [cursorX, cursorY, radius]);
 
   return (
@@ -96,7 +94,7 @@ export const RevealLayer: React.FC<RevealLayerProps> = ({
       />
       <div
         ref={revealDivRef}
-        className="absolute inset-0 bg-center bg-cover bg-no-repeat z-30 pointer-events-none transition-opacity duration-300"
+        className="absolute inset-0 bg-cover bg-no-repeat z-30 pointer-events-none transition-opacity duration-300 bg-[center_18%] sm:bg-center"
         style={{
           backgroundImage: `url(${image})`,
           opacity: 0

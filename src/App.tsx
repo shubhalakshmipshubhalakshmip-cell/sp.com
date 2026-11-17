@@ -11,11 +11,11 @@ import { Contact } from './components/Contact';
 export const App: React.FC = () => {
   return (
     <div
-      className="min-h-screen bg-[#F8F7F4] text-[#111111] tracking-[-0.02em] selection:bg-[#8B1E24]/15 selection:text-[#8B1E24]"
+      className="min-h-screen bg-[#F8F7F4] text-[#111111] tracking-[-0.02em] selection:bg-[#8B1E24]/15 selection:text-[#8B1E24] overflow-x-hidden w-full"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <Navbar />
-      <main>
+      <main className="w-full overflow-x-hidden">
         <Hero />
         <About />
         <Experience />
