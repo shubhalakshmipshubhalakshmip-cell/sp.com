@@ -1,3 +1,13 @@
+export interface LiveStorefront {
+  id: string;
+  name: string;
+  domain: string;
+  url: string;
+  category: string;
+  tagline: string;
+  impact: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -6,6 +16,7 @@ export interface ProjectItem {
   techStack?: string;
   tags: string[];
   highlights: string[];
+  liveStorefronts?: LiveStorefront[];
 }
 
 export interface ExperienceItem {
@@ -127,16 +138,48 @@ export const portfolioData: PortfolioData = {
   // =========================================================================
   projects: [
     {
-      id: "ecohaven",
-      title: "EcoHaven – E-commerce Website Project",
-      category: "E-Commerce & Web Development",
+      id: "live-storefronts",
+      title: "Live E-Commerce & Brand Websites",
+      category: "E-COMMERCE & LIVE WEB STOREFRONTS",
       description:
-        "Developed an e-commerce website with user-friendly navigation and product management features. Focused on responsive design, website optimization, and providing a seamless online shopping experience.",
-      tags: ["WordPress", "Shopify", "E-commerce", "Responsive Design", "SEO"],
+        "Designed, developed, and optimized high-converting online storefronts and brand websites built for speed, mobile responsiveness, and seamless customer journeys.",
+      tags: ["The Footsteps", "Pilates Hub", "Bounce Here", "E-Commerce", "Shopify", "WordPress"],
       highlights: [
-        "Intuitive product discovery & seamless checkout flow",
-        "Mobile-first responsive architecture with fast load times",
-        "Conversion-focused product showcase and catalog optimization"
+        "Custom storefront UI/UX tailored for brand identity & conversions",
+        "Mobile-first responsive layouts with fast checkout & booking flows",
+        "Click to preview live frontpages right inside this portfolio"
+      ],
+      liveStorefronts: [
+        {
+          id: "thefootsteps",
+          name: "The Footsteps",
+          domain: "thefootsteps.in",
+          url: "https://thefootsteps.in/",
+          category: "Footwear & Streetwear E-Commerce",
+          tagline: "Footwear & Streetwear Storefront",
+          impact:
+            "Modern footwear & sneaker storefront engineered with clean product discovery, fast mobile navigation, and conversion-focused product pages."
+        },
+        {
+          id: "pilateshub",
+          name: "Pilates Hub",
+          domain: "pilateshub.in",
+          url: "https://www.pilateshub.in/",
+          category: "Wellness Studio & Booking Platform",
+          tagline: "Wellness Studio & Booking Platform",
+          impact:
+            "Clean wellness & fitness studio web experience designed for effortless class discovery, brand trust, and mobile-first lead capture."
+        },
+        {
+          id: "bouncehere",
+          name: "Bounce Here",
+          domain: "bouncehere.com",
+          url: "https://www.bouncehere.com/",
+          category: "Entertainment & Experience Brand",
+          tagline: "Entertainment & Experience Brand",
+          impact:
+            "Vibrant, high-energy interactive brand website built with engaging visual hierarchy, clear CTAs, and smooth cross-device performance."
+        }
       ]
     },
     {
