@@ -343,6 +343,9 @@ export const Projects: React.FC = () => {
                   <Lock size={10} className="text-emerald-400" />
                   <span>{currentSite.url}</span>
                 </div>
+                <span className="hidden md:inline-block px-2 py-0.5 rounded-full bg-white/10 text-[10px] text-white/70">
+                  {currentSite.allowIframe ? 'Interactive View' : 'Live Snapshot'}
+                </span>
               </div>
 
               <a
@@ -356,20 +359,55 @@ export const Projects: React.FC = () => {
               </a>
             </div>
 
-            {/* Live Iframe Viewport */}
-            <div className="relative w-full bg-white flex-1 min-h-[50vh] sm:min-h-[58vh]">
-              <iframe
-                src={currentSite.url}
-                title={`${currentSite.name} Live Storefront`}
-                className="w-full h-[52vh] sm:h-[60vh] border-none bg-white"
-                loading="lazy"
-              />
+            {/* Smart Hybrid Viewport: Live Iframe for Pilates Hub, or Snapshot Preview with Launch Button for The Footsteps & Bounce Here */}
+            <div className="relative w-full bg-[#0a0a0a] flex-1 min-h-[50vh] sm:min-h-[58vh] overflow-hidden flex items-center justify-center">
+              {currentSite.allowIframe ? (
+                <iframe
+                  src={currentSite.url}
+                  title={`${currentSite.name} Live Storefront`}
+                  className="w-full h-[52vh] sm:h-[60vh] border-none bg-white"
+                  loading="lazy"
+                />
+              ) : (
+                <a
+                  href={currentSite.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/snap relative w-full h-[52vh] sm:h-[60vh] block overflow-hidden bg-gradient-to-br from-[#180a0c] to-[#0a0a0a]"
+                >
+                  {/* High-res live frontpage snapshot */}
+                  <img
+                    src={`https://s.wordpress.com/mshots/v1/${encodeURIComponent(currentSite.url)}?w=1280`}
+                    alt={`${currentSite.name} Live Frontpage`}
+                    className="w-full h-full object-cover object-top opacity-90 group-hover/snap:opacity-100 group-hover/snap:scale-[1.02] transition-all duration-500"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+
+                  {/* Gradient shadow overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20 pointer-events-none" />
+
+                  {/* Floating Glassmorphic Center Pill Button */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10 pointer-events-none">
+                    <div className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-black/75 backdrop-blur-xl border border-white/25 text-white text-xs sm:text-sm font-semibold shadow-2xl group-hover/snap:scale-105 group-hover/snap:border-white/50 transition-all">
+                      <span>Click to Launch Live Website in Chrome</span>
+                      <ExternalLink size={15} className="text-[#E5B5B7]" />
+                    </div>
+                    <p className="text-[11px] text-white/75 font-mono mt-3 max-w-md">
+                      Interactive live storefront • Opens {currentSite.domain} in a fresh browser tab
+                    </p>
+                  </div>
+                </a>
+              )}
             </div>
 
             {/* Bottom Fallback & Action Banner */}
             <div className="px-5 py-3 bg-[#181818] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/70">
               <span className="text-[11px] text-white/60">
-                Previewing live frontpage • Click "Open Live Site" to browse catalog and checkout in full screen
+                {currentSite.allowIframe
+                  ? 'Previewing live frontpage • Click "Open Live Site" to browse catalog in full screen'
+                  : 'Live frontpage snapshot • Click anywhere on the preview to open the live site in Chrome'}
               </span>
               <div className="flex items-center gap-3">
                 <a

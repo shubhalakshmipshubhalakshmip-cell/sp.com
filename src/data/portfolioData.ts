@@ -6,6 +6,7 @@ export interface LiveStorefront {
   category: string;
   tagline: string;
   impact: string;
+  allowIframe: boolean;
 }
 
 export interface ProjectItem {
@@ -157,6 +158,7 @@ export const portfolioData: PortfolioData = {
           url: "https://thefootsteps.in/",
           category: "Footwear & Streetwear E-Commerce",
           tagline: "Footwear & Streetwear Storefront",
+          allowIframe: false,
           impact:
             "Modern footwear & sneaker storefront engineered with clean product discovery, fast mobile navigation, and conversion-focused product pages."
         },
@@ -167,6 +169,7 @@ export const portfolioData: PortfolioData = {
           url: "https://www.pilateshub.in/",
           category: "Wellness Studio & Booking Platform",
           tagline: "Wellness Studio & Booking Platform",
+          allowIframe: true,
           impact:
             "Clean wellness & fitness studio web experience designed for effortless class discovery, brand trust, and mobile-first lead capture."
         },
@@ -177,6 +180,7 @@ export const portfolioData: PortfolioData = {
           url: "https://www.bouncehere.com/",
           category: "Entertainment & Experience Brand",
           tagline: "Entertainment & Experience Brand",
+          allowIframe: false,
           impact:
             "Vibrant, high-energy interactive brand website built with engaging visual hierarchy, clear CTAs, and smooth cross-device performance."
         }
