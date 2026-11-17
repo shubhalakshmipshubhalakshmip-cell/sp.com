@@ -126,7 +126,7 @@ export const portfolioData: PortfolioData = {
   navigation: [
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
+    { label: "My Work", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Education", href: "#education" }
   ],
@@ -145,7 +145,7 @@ export const portfolioData: PortfolioData = {
     }
   ],
   // =========================================================================
-  // FEATURED PROJECTS
+  // DELIVERED WORKS
   // Easily add more Website Development, Social Media, or Ad Campaign projects
   // by simply appending a new object to this array.
   // =========================================================================
@@ -274,16 +274,17 @@ export const portfolioData: PortfolioData = {
       ]
     },
     {
-      id: "marketing-optimization",
-      title: "Digital Marketing Campaign Optimization Project",
-      category: "Performance Marketing & ROI Optimization",
+      id: "end-to-end-execution",
+      title: "SEO, Web Development, Social Growth & Creative Design",
+      category: "END-TO-END DIGITAL EXECUTION & AI WORKFLOWS",
       description:
-        "Planned and optimized Google Ads & Meta Ads campaigns with audience targeting, keyword analysis, and performance tracking. Improved campaign effectiveness through CTR analysis and conversion optimization.",
-      tags: ["Google Ads", "Meta Ads", "A/B Testing", "CTR Optimization", "Audience Targeting"],
+        "Delivering 100% end-to-end digital execution with precision and speed—combining technical SEO optimization, custom website development, social media page management, high-converting creative post design, and 35+ AI tools to build premium brand experiences.",
+      tags: ["SEO Audits", "Custom Web Dev", "Social Media", "Post Design", "35+ AI Tools", "Growth Marketing"],
       highlights: [
-        "Advanced keyword intent clustering and negative keyword sculpting",
-        "Dynamic ad copy variations and funnel stage retargeting",
-        "Measurable CTR uplift and reduced cost per lead (CPL)"
+        "Complete SEO Optimization: On-page SEO, keyword strategy, technical audits & search ranking growth",
+        "Custom Website Development: Fast, responsive, conversion-ready websites built to premium standards",
+        "Social Media Handling & Creative Post Design: End-to-end page management, scroll-stopping posters & brand visuals",
+        "AI-Powered 100% Execution: Leveraging 35+ cutting-edge AI tools for faster research, design, content & campaign optimization"
       ]
     }
     // 💡 TO ADD A NEW PROJECT: Copy the template below and uncomment:

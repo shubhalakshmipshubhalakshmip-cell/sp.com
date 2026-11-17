@@ -66,19 +66,19 @@ export const Projects: React.FC = () => {
 
   return (
     <>
-      <section id="projects" className="py-24 sm:py-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1] scroll-mt-24">
+      <section id="projects" className="pt-10 pb-16 sm:py-24 md:py-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1] scroll-mt-24">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 relative z-10">
           {/* Header */}
-          <div className="flex flex-col items-start mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E24]/10 border border-[#8B1E24]/20 text-xs font-semibold text-[#8B1E24] uppercase tracking-widest mb-4">
+          <div className="flex flex-col items-start mb-6 sm:mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E24]/10 border border-[#8B1E24]/20 text-xs font-semibold text-[#8B1E24] uppercase tracking-widest mb-3 sm:mb-4">
               <Layers size={13} className="text-[#8B1E24]" />
-              <span>03 / Selected Works</span>
+              <span>03 / Delivered Works</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#111111]">
-              Featured <span className="font-playfair italic font-normal text-[#8B1E24]">Projects</span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#111111]">
+              Delivered <span className="font-playfair italic font-normal text-[#8B1E24]">Works</span>
             </h2>
-            <p className="text-[#4B5563] text-sm sm:text-base max-w-xl mt-3 font-light">
-              Live client storefronts, social media brand growth accounts, and high-ROI digital marketing campaign frameworks.
+            <p className="text-[#4B5563] text-xs sm:text-base max-w-xl mt-2 sm:mt-3 font-light leading-relaxed">
+              Websites, social media growth & digital campaigns I've built and scaled.
             </p>
           </div>
 
@@ -329,35 +329,47 @@ export const Projects: React.FC = () => {
             </div>
 
             {/* ========================================================= */}
-            {/* CARD 03: Performance Marketing & Ad Campaign Optimization */}
+            {/* CARD 03: End-to-End Digital Execution & AI Workflows (Non-Clickable) */}
             {/* ========================================================= */}
-            <div className="bg-white border border-[#E8E6E1] rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-[#8B1E24]/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+            <div className="bg-white border border-[#E8E6E1] rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-[#8B1E24]/30 transition-all duration-300 flex flex-col justify-between overflow-hidden">
               <div>
                 {/* Visual Header */}
-                <div className="h-52 w-full bg-gradient-to-br from-[#1C1405] via-[#2E2008] to-[#120D03] p-5 flex flex-col justify-between relative overflow-hidden text-white rounded-t-3xl">
-                  <div className="absolute top-0 right-0 w-36 h-36 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="h-52 w-full bg-gradient-to-br from-[#1A0A0D] via-[#260C11] to-[#120508] p-4 sm:p-5 flex flex-col justify-between relative overflow-hidden text-white rounded-t-3xl">
+                  <div className="absolute top-0 right-0 w-36 h-36 bg-[#8B1E24]/20 rounded-full blur-2xl pointer-events-none" />
+                  
                   <div className="flex items-center justify-between z-10">
-                    <span className="text-[10px] font-mono tracking-widest uppercase bg-white/10 px-2.5 py-1 rounded-full border border-white/15">
-                      Performance Analytics
+                    <span className="text-[10px] font-mono tracking-widest uppercase bg-white/10 px-2.5 py-1 rounded-full border border-white/15 inline-flex items-center gap-1.5">
+                      <Sparkles size={11} className="text-[#E5B5B7]" />
+                      <span>100% Execution • AI-Powered Workflow</span>
                     </span>
-                    <BarChart3 size={16} className="text-amber-300" />
+                    <span className="text-[10px] font-mono font-semibold text-[#E5B5B7] bg-[#8B1E24]/30 border border-[#8B1E24]/50 px-2.5 py-0.5 rounded-full">
+                      Full-Stack Execution
+                    </span>
                   </div>
 
-                  <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/15 z-10 flex items-end justify-between gap-2">
-                    <div>
-                      <div className="text-[10px] text-white/70 font-mono">Conversion Uplift</div>
-                      <div className="text-base font-semibold text-amber-300">+48.6% CTR</div>
+                  {/* 4 Feature Badges */}
+                  <div className="grid grid-cols-2 gap-2 z-10">
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/15">
+                      <div className="text-[9px] text-[#E5B5B7] font-mono uppercase tracking-wider">SEO & Growth</div>
+                      <div className="text-xs font-semibold text-white">Technical & On-Page</div>
                     </div>
-                    <div className="flex items-end gap-1.5 h-10">
-                      <div className="w-3 bg-amber-400/40 rounded-t h-4" />
-                      <div className="w-3 bg-amber-400/60 rounded-t h-6" />
-                      <div className="w-3 bg-amber-400/80 rounded-t h-8" />
-                      <div className="w-3 bg-amber-400 rounded-t h-10" />
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/15">
+                      <div className="text-[9px] text-[#E5B5B7] font-mono uppercase tracking-wider">Web Development</div>
+                      <div className="text-xs font-semibold text-white">Custom & Responsive</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/15">
+                      <div className="text-[9px] text-[#E5B5B7] font-mono uppercase tracking-wider">Social & Posters</div>
+                      <div className="text-xs font-semibold text-white">End-to-End Handling</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/15">
+                      <div className="text-[9px] text-[#E5B5B7] font-mono uppercase tracking-wider">AI Acceleration</div>
+                      <div className="text-xs font-semibold text-white">35+ AI Tools</div>
                     </div>
                   </div>
 
-                  <div className="z-10 text-[10px] font-mono text-amber-300/80">
-                    Audience Intent & Paid Funnel Retargeting
+                  <div className="z-10 text-[10px] font-mono text-white/70 flex items-center justify-between">
+                    <span>Precision • Speed • Measurable ROI</span>
+                    <span className="text-[#E5B5B7]">100% Autonomous</span>
                   </div>
                 </div>
 
@@ -370,7 +382,7 @@ export const Projects: React.FC = () => {
                     <span className="font-mono text-xs text-[#9CA3AF]">03</span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#111111] tracking-tight leading-snug mb-3 group-hover:text-[#8B1E24] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#111111] tracking-tight leading-snug mb-3">
                     {projects[2].title}
                   </h3>
 
@@ -378,14 +390,22 @@ export const Projects: React.FC = () => {
                     {projects[2].description}
                   </p>
 
-                  {/* Highlights */}
-                  <div className="space-y-1.5 pt-3 border-t border-[#E8E6E1]">
-                    {projects[2].highlights.map((item, hIdx) => (
-                      <div key={hIdx} className="flex items-start gap-2 text-xs text-[#4B5563]">
-                        <Check size={13} className="text-[#8B1E24] mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
+                  {/* 4 Detailed Highlights */}
+                  <div className="space-y-2.5 pt-3 border-t border-[#E8E6E1]">
+                    {projects[2].highlights.map((item, hIdx) => {
+                      const parts = item.split(': ');
+                      const title = parts.length > 1 ? parts[0] : '';
+                      const detail = parts.length > 1 ? parts.slice(1).join(': ') : item;
+                      return (
+                        <div key={hIdx} className="flex items-start gap-2 text-xs text-[#4B5563]">
+                          <Check size={13} className="text-[#8B1E24] mt-0.5 flex-shrink-0" />
+                          <span className="leading-snug">
+                            {title && <strong className="text-[#111111] font-medium">{title}: </strong>}
+                            <span>{detail}</span>
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -575,10 +595,10 @@ export const Projects: React.FC = () => {
             if (e.target === e.currentTarget) setSocialModalOpen(false);
           }}
         >
-          <div className="max-w-4xl w-full bg-[#111111] border border-white/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col text-white max-h-[94vh] animate-in zoom-in-95 duration-200">
-            {/* Top Bar: Switcher Tabs, Open Button & Close Button */}
-            <div className="px-4 sm:px-6 py-3.5 bg-[#181818] border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full">
+          <div className="max-w-xl w-full bg-[#111111] border border-white/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col text-white max-h-[92vh] animate-in zoom-in-95 duration-200">
+            {/* Top Bar: Clean Compact Tab Switcher & Unclipped X Close Button */}
+            <div className="px-4 sm:px-6 py-3 bg-[#181818] border-b border-white/10 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-1.5 overflow-x-auto py-1 max-w-[calc(100%-48px)] no-scrollbar">
                 {socialPages.map((page, pIdx) => {
                   const isActive = pIdx === activeSocialIndex;
                   return (
@@ -586,118 +606,88 @@ export const Projects: React.FC = () => {
                       key={page.id}
                       type="button"
                       onClick={() => setActiveSocialIndex(pIdx)}
-                      className={`px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium transition-all flex-shrink-0 cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex-shrink-0 cursor-pointer ${
                         isActive
                           ? 'bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white shadow-sm font-semibold'
                           : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
                       }`}
                     >
-                      <span>0{pIdx + 1}. {page.handle}</span>
+                      <span>{page.handle}</span>
                     </button>
                   );
                 })}
               </div>
 
-              <div className="flex items-center gap-2.5 ml-auto">
-                <a
-                  href={currentSocial.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white hover:opacity-90 text-xs font-semibold px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 transition-all shadow-sm"
-                >
-                  <Instagram size={13} />
-                  <span>Open on Instagram</span>
-                  <ExternalLink size={13} />
-                </a>
-
-                <button
-                  type="button"
-                  onClick={() => setSocialModalOpen(false)}
-                  aria-label="Close Preview"
-                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors cursor-pointer"
-                >
-                  <X size={18} />
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => setSocialModalOpen(false)}
+                aria-label="Close Preview"
+                className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors cursor-pointer flex-shrink-0 ml-2"
+              >
+                <X size={18} />
+              </button>
             </div>
 
-            {/* Short Impact Line */}
-            <div className="px-5 sm:px-6 py-3 bg-[#141414] border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-pink-300 font-semibold">
-                  {currentSocial.handle}
-                </span>
-                <span className="text-white/40">•</span>
-                <span className="text-white/70">{currentSocial.category}</span>
-              </div>
-              <p className="text-white/80 font-light text-xs max-w-xl">
-                {currentSocial.impact}
-              </p>
-            </div>
-
-            {/* Branded Instagram Profile Viewport */}
-            <div className="p-6 sm:p-10 bg-gradient-to-b from-[#180812] via-[#0D0D0D] to-[#0A0A0A] flex flex-col items-center justify-center text-center overflow-y-auto">
+            {/* Single Unified Profile Body (pt-6 to pt-8, Zero Clipping, Clean Hierarchy) */}
+            <div className="pt-6 sm:pt-8 px-5 sm:px-8 pb-6 bg-gradient-to-b from-[#180812] via-[#0D0D0D] to-[#0A0A0A] overflow-y-auto flex flex-col items-center text-center">
               {/* Instagram Story Gradient Ring & Avatar */}
-              <div className="p-1 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shadow-xl mb-4">
-                <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center text-white border-2 border-black">
-                  <Instagram size={36} className="text-white" />
+              <div className="p-1 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shadow-lg mb-3">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black flex items-center justify-center text-white border-2 border-black">
+                  <Instagram size={30} className="text-white" />
                 </div>
               </div>
 
-              {/* Profile Details */}
-              <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-1">
+              {/* Brand Title & Handle */}
+              <h4 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-1">
                 {currentSocial.name}
               </h4>
-              <div className="text-sm font-mono text-pink-300 mb-2 font-medium">
-                {currentSocial.handle}
+              <div className="inline-flex items-center gap-2 mb-2.5">
+                <span className="text-xs sm:text-sm font-mono text-pink-300 font-medium">
+                  {currentSocial.handle}
+                </span>
+                <span className="text-white/30">•</span>
+                <span className="text-xs text-white/70">{currentSocial.category}</span>
               </div>
-              <div className="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-white/80 mb-6">
+
+              {/* Role Badge */}
+              <div className="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-white/90 mb-4 font-mono">
                 Role: {currentSocial.role}
               </div>
 
-              {/* 3 Key Deliverables Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-2xl mb-8 text-left">
+              {/* 2-Line Concise Impact Summary */}
+              <p className="text-xs sm:text-sm text-white/80 font-light max-w-lg mb-5 leading-relaxed">
+                {currentSocial.impact}
+              </p>
+
+              {/* 3 Compact Checkmarked Deliverables */}
+              <div className="w-full max-w-lg space-y-2 mb-6 text-left">
                 {currentSocial.deliverables.map((item, dIdx) => (
                   <div
                     key={dIdx}
-                    className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 flex items-start gap-2.5"
+                    className="p-2.5 sm:p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-start gap-2.5"
                   >
                     <Check size={14} className="text-pink-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-xs text-white/85 font-light leading-snug">{item}</span>
+                    <span className="text-xs sm:text-sm text-white/90 font-light leading-snug">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
 
-              {/* High-Impact Direct Launch Button */}
+              {/* ONLY ONE PRIMARY CTA BUTTON at the bottom */}
               <a
                 href={currentSocial.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white font-semibold text-sm hover:opacity-95 shadow-xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2.5"
+                className="w-full max-w-lg py-3 sm:py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white font-medium text-sm hover:opacity-95 shadow-xl transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
               >
-                <Instagram size={18} />
-                <span>View Live Page on Instagram ({currentSocial.handle})</span>
-                <ExternalLink size={16} />
+                <Instagram size={17} />
+                <span>Open {currentSocial.handle} on Instagram ↗</span>
               </a>
 
-              <p className="text-[11px] font-mono text-white/50 mt-4">
-                Click above to inspect live reels, carousel posters, and audience engagement
+              <p className="text-[11px] font-mono text-white/45 mt-3">
+                Tap above to view live posts, carousels, reels & audience engagement
               </p>
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="px-5 py-3 bg-[#181818] border-t border-white/10 flex items-center justify-between text-xs text-white/60">
-              <span className="text-[11px]">
-                Managed account • Content Strategy, Creative Poster Design & Page Growth
-              </span>
-              <a
-                href={currentSocial.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold text-pink-300 hover:text-white underline inline-flex items-center gap-1"
-              >
-                <span>Launch on Instagram ↗</span>
-              </a>
             </div>
           </div>
         </div>

@@ -16,15 +16,15 @@ export const About: React.FC = () => {
   return (
     <section id="about" className="pt-8 sm:pt-12 pb-24 sm:pb-32 bg-[#F8F7F4] relative border-t border-[#E8E6E1]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 relative z-10">
-        {/* Sleek High-Impact Work & Featured Projects Showcase Bar */}
-        <div className="bg-white border border-[#E8E6E1] rounded-3xl p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-12 sm:mb-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 group hover:border-[#8B1E24]/30 transition-all">
-          <div className="space-y-1.5 max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-widest text-[#8B1E24]">
+        {/* Sleek High-Impact Work & Delivered Works Showcase Bar */}
+        <div className="bg-white border border-[#E8E6E1] rounded-3xl p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-10 sm:mb-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 group hover:border-[#8B1E24]/30 transition-all">
+          <div className="space-y-1 max-w-2xl">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-widest text-[#8B1E24]">
               <Layers size={13} className="text-[#8B1E24]" />
               <span>Selected Work & Portfolio</span>
             </div>
-            <p className="text-sm sm:text-base font-medium text-[#111111] leading-snug">
-              Explore my live work in Website Development, Social Media Management & Paid Ad Campaigns.
+            <p className="text-xs sm:text-base font-medium text-[#111111] leading-snug">
+              Real client websites, Instagram growth & digital campaigns delivered by me.
             </p>
           </div>
 
@@ -33,8 +33,8 @@ export const About: React.FC = () => {
             onClick={handleScrollToProjects}
             className="bg-[#8B1E24] hover:bg-[#6E161B] text-white text-xs sm:text-sm font-medium px-5 py-2.5 rounded-full inline-flex items-center gap-2 transition shadow-md hover:shadow-[#8B1E24]/20 active:scale-95 cursor-pointer flex-shrink-0"
           >
-            <span>Explore Featured Projects</span>
-            <ArrowDownRight size={16} />
+            <span>Explore Delivered Works ↓</span>
+            <ArrowDownRight size={15} />
           </a>
         </div>
 
