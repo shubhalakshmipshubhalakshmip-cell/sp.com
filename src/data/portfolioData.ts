@@ -9,6 +9,17 @@ export interface LiveStorefront {
   allowIframe: boolean;
 }
 
+export interface SocialMediaPage {
+  id: string;
+  name: string;
+  handle: string;
+  url: string;
+  category: string;
+  role: string;
+  deliverables: string[];
+  impact: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -18,6 +29,7 @@ export interface ProjectItem {
   tags: string[];
   highlights: string[];
   liveStorefronts?: LiveStorefront[];
+  socialMediaPages?: SocialMediaPage[];
 }
 
 export interface ExperienceItem {
@@ -187,17 +199,78 @@ export const portfolioData: PortfolioData = {
       ]
     },
     {
-      id: "health-monitor",
-      title: "Digital Platform for Patient-Based Health Monitoring and Glycemic Risk Assessment",
-      category: "Healthcare & Full Stack Web Application",
-      techStack: "HTML, JavaScript (Frontend) | PHP (Backend) | SQL (Database)",
+      id: "social-media-growth",
+      title: "Social Media Handling & Brand Growth",
+      category: "SOCIAL MEDIA MANAGEMENT & CREATIVE DESIGN",
       description:
-        "Developed a digital platform for monitoring patient health data and assessing glycemic risk with clinical accuracy and intuitive visual reporting.",
-      tags: ["HTML", "JavaScript", "PHP", "SQL", "HealthTech", "Database Design"],
+        "Managed end-to-end Instagram presence, designed high-converting promotional posters, and executed organic & paid growth strategies across education, healthcare, and fitness brands.",
+      tags: ["Instagram Growth", "Poster Design", "Social Media", "Canva", "Meta Ads", "Content Strategy"],
       highlights: [
-        "Interactive dashboard for tracking patient physiological metrics",
-        "Algorithmic glycemic risk indicator based on historical records",
-        "Relational SQL architecture ensuring data integrity and fast retrieval"
+        "Designed custom campaign posters, carousels & brand visuals",
+        "Managed daily content calendars, audience engagement & profile growth",
+        "Click to inspect all 4 managed Instagram handles & launch directly"
+      ],
+      socialMediaPages: [
+        {
+          id: "cit-bengaluru",
+          name: "CIT Bengaluru",
+          handle: "@cit.bengaluru",
+          url: "https://www.instagram.com/cit.bengaluru?dlrf=N2Q5dWU4em5ud3Rr",
+          category: "Education & Campus Community",
+          role: "Social Media Executive & Creative Designer",
+          deliverables: [
+            "Institutional Branding & Student Engagement Creatives",
+            "Admissions & Campus Event Promotional Posters",
+            "Consistent Visual Aesthetic & Daily Stories"
+          ],
+          impact:
+            "Elevated institutional digital presence with high-converting admission campaign visuals, vibrant student life carousels, and measurable engagement growth."
+        },
+        {
+          id: "kauvery-hospitals",
+          name: "Kauvery Hospitals Bangalore",
+          handle: "@kauvery_hospitals_bangalore",
+          url: "https://www.instagram.com/kauvery_hospitals_bangalore?psln=bDYyenVkMDVxbjhm",
+          category: "Healthcare & Medical Services",
+          role: "Healthcare Creative Strategy & Social Media",
+          deliverables: [
+            "Health Awareness Posters & Doctor Spotlight Posts",
+            "Medical Camp & Community Health Announcements",
+            "Trust-Building Patient Care Informational Carousels"
+          ],
+          impact:
+            "Built hospital brand credibility through sensitive, informative medical design, public health announcements, and community-focused healthcare campaigns."
+        },
+        {
+          id: "ugi-bengaluru",
+          name: "UGI Bengaluru",
+          handle: "@ugibengaluru",
+          url: "https://www.instagram.com/ugibengaluru?vrfl=MWd4MDY4MnRqdWYzNw==",
+          category: "Campus Events & Youth Culture",
+          role: "Social Growth Lead & Content Creator",
+          deliverables: [
+            "Campus Festivals & Event Teaser Graphics",
+            "Reels Trend Alignment & Youth Community Growth",
+            "Interactive Polls, Q&As & Engagement Sprints"
+          ],
+          impact:
+            "Boosted youth participation across college festivals, achieved viral campus reels reach, and maintained high daily audience retention."
+        },
+        {
+          id: "hyfit-fitness",
+          name: "Hyfit Fitness Club",
+          handle: "@hyfit.fitnessclub",
+          url: "https://www.instagram.com/hyfit.fitnessclub?exln=cnlydGtxdmxkcmN6",
+          category: "Fitness & Lifestyle Community",
+          role: "Fitness Marketing & Promo Designer",
+          deliverables: [
+            "Membership Offer Posters & Lead-Gen Visuals",
+            "Client Transformation Stories & Motivation Posts",
+            "Gym Events & Trainer Spotlight Campaigns"
+          ],
+          impact:
+            "Generated consistent walk-in inquiries and DM leads through high-energy promotional posters, transformation showcases, and targeted fitness promotions."
+        }
       ]
     },
     {
